@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <link rel="stylesheet" href="../static/css/app.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html">웹프로그래밍</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/index.html">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/guest.html">방명록</a>
+            </li>
+
+            {% if not user_name %}
+            <li class="nav-item">
+              <a class="nav-link" href="/join.html">회원가입</a>
+            </li>
+            {% endif %}
+          </ul>
+          <ul class="navbar-nav">
+            {% if user_name %}
+            <li class="nav-item">
+              <a class="nav-link active">{{ user_name }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">로그아웃</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="/login.html">로그인</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="text-center">
+      {% if user_name %}
+      <div class="introduce">
+        <p class="hello_text">
+          <strong>Hello!</strong> Nice Meet you <strong>{{ user_name }}</strong>
+        </p>
+        <div class="profile">
+          <img
+            class="profile_image"
+            src="../static/image/profile.jpg"
+            alt="프로필 사진"
+          />
+          <p class="profile_name">임재현</p>
+        </div>
+        <div class="intro_text">
+          <p class="intro_text_school">
+            대구소프트웨어마이스터고등학교 재학 중
+          </p>
+          <p class="intro_text_skill">안드로이드 개발자📱</p>
+          <p class="intro_text_shortIntro">
+            <strong
+              >"개발자가 편한 개발보다<br />
+              사용자가 편한 개발이 먼저다"</strong
+            >
+            <br />
+            라는 마음가짐을 가지고<br />
+            다양한 것들을 보고 배우며<br />
+            발전해 나가고 있습니다.
+          </p>
+        </div>
+        <div class="intro_moreLearn">
+          <p class="intro_moreLearn_text">Learn more</p>
+          <div class="intro_moreLearn_icon">
+            <div class="intro_moreLearn_icon_facebook">
+              <a
+                href="https://www.facebook.com/profile.php?id=100016279240376"
+                title="페이스북 페이지로 이동합니다."
+                target="_blank"
+                ><img
+                  width="75px"
+                  height="75px"
+                  src="../static/image/facebook.png"
+              /></a>
+            </div>
+
+            <div class="intro_moreLearn_icon_instagram">
+              <a
+                href="https://www.instagram.com/ljh_04_5_13/"
+                title="인스타그램 페이지로 이동합니다."
+                target="_blank"
+                ><img
+                  width="75px"
+                  height="75px"
+                  src="../static/image/instagram.png"
+              /></a>
+            </div>
+
+            <div class="intro_moreLearn_icon_github">
+              <a
+                href="https://github.com/limjh0513"
+                title="Github 페이지로 이동합니다."
+                target="_blank"
+                ><img
+                  width="75px"
+                  height="75px"
+                  src="../static/image/github.png"
+              /></a>
+            </div>
+
+            <div class="intro_moreLearn_icon_rocketPunch">
+              <a
+                href="https://www.rocketpunch.com/@imjaehyeonf448e310554b41a3"
+                title="로켓펀치 페이지로 이동합니다."
+                target="_blank"
+                ><img
+                  width="75px"
+                  height="75px"
+                  src="../static/image/rocketpunch.png"
+              /></a>
+            </div>
+
+            <div class="intro_moreLearn_icon_email">
+              <a
+                href="mailto:ljh040513@naver.com"
+                title="이메일 : ljh040513@naver.com"
+                target="_blank"
+                ><img
+                  width="75px"
+                  height="75px"
+                  src="../static/image/email.png"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% else %} 로그인 후 사용해주세요. {% endif%}
+    </div>
+  </body>
+</html>
